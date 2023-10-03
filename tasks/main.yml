@@ -1,4 +1,4 @@
-- name: "[Explorer:main] version: 0.1"
+- name: "[Explorer:main] version: 0.2"
   hosts: postgresql
   gather_facts: true
   vars:
