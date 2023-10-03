@@ -18,6 +18,6 @@ is being included constantly
 
 ## results
 ```
-ls -la /tmp/explores/
+ls -la /tmp/explorer/
 ```
 
