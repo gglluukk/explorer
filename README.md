@@ -12,7 +12,7 @@ ansible-playbook tasks/main.yml --inventory hosts/test@lab
 
 ## vars
 
-- file `vars/main.yml`
+- file `vars/main.yml` \
 is being included constantly
 
 
