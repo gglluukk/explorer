@@ -1,0 +1,4 @@
+[postgresql]
+control ansible_host=control
+book ansible_host=book
+bull ansible_host=bull

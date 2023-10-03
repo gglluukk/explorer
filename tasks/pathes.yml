@@ -1,0 +1,6 @@
+- name: "[Explorer:pathes] Copy explorer_pathes"
+  local_action:
+    module: copy
+    src: "{{ item }}"
+    dest: "/tmp/explorer/{{ inventory_hostname_short }}/{{ item }}"
+  with_items: "{{ explorer_pathes }}"

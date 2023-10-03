@@ -1,0 +1,40 @@
+- name: "[Explorer:queries] Query list of databases"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  command: psql -c "
+      SELECT datname AS databases
+      FROM pg_catalog.pg_database
+      ORDER BY databases"
+  register: query_databases
+
+- name: "[Explorer:queries] Save list of databases"
+  local_action:
+    module: copy
+    content: "{{ query_databases.stdout }}\n"
+    dest: "/tmp/explorer/{{ inventory_hostname_short }}/query_databases.txt"
+
+- name: "[Explorer:queries] Query list of users"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  command: psql -c "
+      SELECT usename AS role_name,
+       CASE
+        WHEN usesuper AND usecreatedb THEN
+          CAST('superuser, create database' AS pg_catalog.text)
+        WHEN usesuper THEN
+          CAST('superuser' AS pg_catalog.text)
+        WHEN usecreatedb THEN
+          CAST('create database' AS pg_catalog.text)
+        ELSE
+          CAST('' AS pg_catalog.text)
+       END role_attributes
+      FROM pg_catalog.pg_user
+      ORDER BY role_name"
+  register: query_users
+
+- name: "[Explorer:queries] Save list of users"
+  local_action:
+    module: copy
+    content: "{{ query_users.stdout }}\n"
+    dest: "/tmp/explorer/{{ inventory_hostname_short }}/query_users.txt"
+

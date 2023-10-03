@@ -1,0 +1,17 @@
+- name: "[Explorer:main] version: 0.1"
+  hosts: postgresql
+  gather_facts: true
+  vars:
+    datacenter: "{{ inventory_file | basename }}"
+  vars_files:
+    - ../vars/main.yml
+  remote_user: "{{ deploy_user }}"
+  become: true
+
+  tasks:
+    - import_tasks: prepare.yml
+
+    - import_tasks: pathes.yml
+
+    - import_tasks: queries.yml
+

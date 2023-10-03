@@ -1,0 +1,13 @@
+- name: "[Explorer:prepare] Create temporary path"
+  local_action:
+    module: file
+    path: /tmp/explorer/{{ inventory_hostname_short }}/
+    state: directory
+    mode: 0700
+    recurse: yes
+
+- name: "[Explorer:prepare] Install acl"
+  apt:
+    name: acl
+    state: present
+

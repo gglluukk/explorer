@@ -1,0 +1,5 @@
+[postgresql]
+node71 ansible_host=10.0.11.71
+node72 ansible_host=10.0.11.72 
+node73 ansible_host=10.0.11.73
+

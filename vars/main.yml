@@ -1,0 +1,10 @@
+### Ansible Deploy
+deploy_user: rnd-deploy
+postgresql_user: postgres
+
+
+### Directories/files to backup
+explorer_pathes:
+  - /etc/postgresql/
+  - /etc/postgresql-common/
+
