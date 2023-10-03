@@ -1,6 +1,6 @@
 # explorer
 
-Ansible role to collect configurations, database and users from PostgreSQL installation
+Ansible role to collect configurations and list of databases/users from PostgreSQL installation
 
 
 ## usage

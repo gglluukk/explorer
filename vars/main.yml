@@ -5,6 +5,7 @@ postgresql_user: postgres
 
 ### Directories/files to backup
 explorer_pathes:
+  - /etc/error/
   - /etc/postgresql/
   - /etc/postgresql-common/
 
